@@ -78,7 +78,7 @@ finalproject/
 
 ## Usage
 
-- Access the application at `http://localhost:8000/`
+- Access the application at `http://13.61.21.177`
 - Register a new account or login
 - Upload and manage your files securely
 
