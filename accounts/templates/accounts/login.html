@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cloud Vault Login</title>
+
+<!-- Correct Static CSS -->
+<link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+
+</head>
+
+<body>
+
+<div class="login-wrapper">
+
+    <div class="login-container">
+
+        <h1>Welcome back! 👋</h1>
+
+        <p class="subtitle">
+            Securely store your files in the cloud
+        </p>
+
+
+        <!-- Django Login Form -->
+        <form method="POST" action="{% url 'login' %}">
+            
+            {% csrf_token %}
+
+            <div class="input-group">
+
+                <label>Username</label>
+
+                <input 
+                    type="text" 
+                    name="username"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Password</label>
+
+                <input 
+                    type="password" 
+                    name="password"
+                    id="password"
+                    required
+                >
+
+                <span class="toggle-password"
+                      onclick="togglePassword()">👁️</span>
+
+            </div>
+
+
+            <div class="remember">
+
+                <input type="checkbox" name="remember">
+
+                <label>
+                    Remember Me
+                </label>
+
+            </div>
+
+
+            <button type="submit">
+                Login
+            </button>
+
+
+            <!-- Django messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="error">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+        </form>
+
+
+        <p class="footer-text">
+            Don't have an account?
+            <a href="{% url 'signup' %}">
+                Sign up
+            </a>
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- Correct Static JS -->
+<script src="{% static 'accounts/js/login.js' %}"></script>
+
+</body>
+</html>

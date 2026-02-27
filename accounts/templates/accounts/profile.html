@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile</title>
+</head>
+<body>
+
+<h2>User Profile</h2>
+
+<p>Username: {{ user.username }}</p>
+
+<p>Email: {{ user.email }}</p>
+
+<p>Storage Limit: {{ user.storage_limit }}</p>
+
+<p>Date Joined: {{ user.date_joined }}</p>
+
+<a href="{% url 'dashboard' %}">Back</a>
+
+</body>
+</html>

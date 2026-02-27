@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cloud Vault Signup</title>
+
+<!-- Correct Static CSS -->
+<link rel="stylesheet" href="{% static 'accounts/css/signup.css' %}">
+
+</head>
+
+
+<body>
+
+<div class="signup-wrapper">
+
+    <div class="signup-container">
+
+        <h1>Create Account 👤</h1>
+
+        <p class="subtitle">
+            Create your secure account
+        </p>
+
+
+        <!-- Django Signup Form -->
+        <form method="POST" action="{% url 'signup' %}">
+
+            {% csrf_token %}
+
+
+            <div class="input-group">
+
+                <input 
+                    type="text" 
+                    name="username"
+                    id="username" 
+                    required
+                >
+
+                <label>Username</label>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <input 
+                    type="email" 
+                    name="email"
+                    id="email" 
+                    required
+                >
+
+                <label>Email</label>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <input 
+                    type="password" 
+                    name="password"
+                    id="password" 
+                    required
+                >
+
+                <label>Password</label>
+
+                <span class="toggle-password"
+                      onclick="togglePassword('password')">
+                    👁️
+                </span>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <input 
+                    type="password" 
+                    name="confirm_password"
+                    id="confirmPassword" 
+                    required
+                >
+
+                <label>Confirm Password</label>
+
+                <!-- FIXED typo here -->
+                <span class="toggle-password"
+                      onclick="togglePassword('confirmPassword')">
+                    👁️
+                </span>
+
+            </div>
+
+
+            <button type="submit">
+                Sign Up
+            </button>
+
+
+            <!-- Django messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="error">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+
+        </form>
+
+
+        <p class="footer-text">
+
+            Already have an account?
+
+            <a href="{% url 'login' %}">
+                Login
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- Correct Static JS -->
+<script src="{% static 'accounts/js/signup.js' %}"></script>
+
+
+</body>
+
+</html>

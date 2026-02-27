@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cloud Vault</title>
+
+    <!-- Static CSS -->
+    <link rel="stylesheet" href="{% static 'accounts/css/index.css' %}">
+
+</head>
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <img src="{% static 'images/icons8-protect-94.png' %}" alt="logo">
+
+        <span>CLOUD VAULT</span>
+
+    </div>
+
+    <nav>
+
+        <!-- HOME -->
+        <a href="{% url 'index' %}">HOME</a>
+
+        <!-- ABOUT -->
+        <a href="#">ABOUT</a>
+
+        <!-- CONTACT -->
+        <a href="#">CONTACT</a>
+
+        <!-- LOGIN BUTTON -->
+        <button class="signup"
+                onclick="window.location.href='{% url 'login' %}'">
+
+            LOG IN
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            SHIELD YOUR<br>
+            <span>DATA</span>
+        </h1>
+
+        <p>
+            Cloud Vault delivers advanced encrypted cloud storage.
+        </p>
+
+        <!-- GET STARTED BUTTON -->
+        <button class="cta"
+                onclick="window.location.href='{% url 'signup' %}'">
+
+            GET STARTED
+
+        </button>
+
+    </div>
+
+
+    <!-- FEATURES -->
+    <div class="feature-box">
+
+        <div class="card">
+
+            <h3>Encryption</h3>
+
+            <p>Military grade data protection.</p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Cloud Sync</h3>
+
+            <p>Access files anytime securely.</p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Fast Servers</h3>
+
+            <p>High performance infrastructure.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Static JS -->
+<script src="{% static 'accounts/js/index.js' %}"></script>
+
+
+</body>
+</html>

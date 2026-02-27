@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>File Detail</title>
+</head>
+<body>
+
+<h2>File Detail</h2>
+
+<p>Name: {{ file.file_name }}</p>
+
+<p>Size: {{ file.file_size }}</p>
+
+<p>Upload Time: {{ file.upload_time }}</p>
+
+<br>
+
+<a href="{% url 'dashboard' %}">Back</a>
+
+<h3>Versions</h3>
+
+{% for version in versions %}
+
+<p>
+
+Version {{ version.version_number }}
+
+</p>
+
+{% empty %}
+
+<p>No versions</p>
+
+{% endfor %}
+
+<h3>Logs</h3>
+
+{% for log in logs %}
+
+<p>
+
+{{ log.action_type }} at {{ log.action_time }}
+
+</p>
+
+{% empty %}
+
+<p>No logs</p>
+
+{% endfor %}
+
+</body>
+</html>

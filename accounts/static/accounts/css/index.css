@@ -1,0 +1,225 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    color:white;
+    background:#073767;
+}
+
+/* NAVBAR  basically bole ye toh jp upr me ek shaed bn rha h uske liye h*/
+.navbar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;/*Logo aur nav links ek hi line me aa jayenge*/
+    justify-content:space-between;/*Matlab logo,nav link opposite sides par chale jayenge.*/
+    align-items:center;
+    padding:20px 80px;
+    z-index:10;/*Navbar hero section ke upar dikhega.*/
+    transition:0.5s;/*isse jo upr aa ja rha rectangular shape jaise blck m*/
+}
+
+.navbar:hover{
+    backdrop-filter:blur(5px);
+    background:rgba(9, 16, 61, 0.2);
+}
+
+/* LOGO */
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    letter-spacing:3px;
+    display:flex;/*logo, text ek line me aa jayenge.*/
+    align-items:center;/*Image aur text vertically center align ho jayenge.*/
+    gap:10px;/*Image aur text ke beech*/
+}
+
+.logo span{
+    background:linear-gradient(to right,#00e0ff,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* NAV LINKS home,about,etc*/
+.navbar nav{
+    display:flex;
+    gap:30px;
+    align-items:center;
+}
+
+.navbar a{
+    color:rgb(255, 255, 255);
+    text-decoration:none;
+    font-size:14px;
+    padding:8px 18px;/*Clickable area bada ho gaya.*/
+    border-radius:20px;
+    transition:0.3s ease, transform 0.3s ease;/*color change hoga ,transform hoga*/
+    position:relative;/*Isliye lagaya hai kyunki hum ::after use kar rahe hain.*/
+}
+
+/* Fancy underline on hover */
+/* :: after -> not write code in html, so using this add in css */
+/* basically ye jo home pe leke jte h cursor niche ek line aati h uske liye h */
+.navbar a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:#00e0ff;
+    bottom:0;
+    left:0;
+    transition:0.3s;
+}
+
+.navbar a:hover::after{
+    width:100%;
+}
+
+.navbar a:hover{
+    color:#00e0ff;
+    transform:translateY(-3px);/*Link thoda upar uth jayega*/
+}
+/*ye login button ke liye h */
+.signup{
+    padding:8px 22px;
+    border-radius:25px;
+    background:#01131a;
+    border:none;
+    color:white;
+    cursor:pointer; /* isse agr hm mouse le gye toh hand bn jyega */
+    font-weight:600;
+    transition:0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup:hover{
+    background:#00bfff;/*Dark se bright blue ho jayega.*/
+    transform:scale(1.1);/*Button 10% bada ho jayega.*/
+    box-shadow:0px 0px 15px #00bfff;/*Blue glow aa jayega button ke around.*/
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:
+        linear-gradient(to right, rgba(0,40,80,0.85), rgba(0,40,80,0.3)),
+        url("home2.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+/* HERO TEXT */
+.hero-content{
+    max-width:5000px;
+    margin-bottom:100px;
+    animation: fadeInUp 1s ease forwards;
+    opacity:0;
+}
+/*Text niche se upar aayega Transparent se visible hoga Smooth 1 second me*/
+@keyframes fadeInUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.hero-content h1{
+    font-size:85px;
+    font-weight:bold;
+    line-height:1.1;
+    background:linear-gradient(90deg,#00e0ff,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-content p{
+    font-size:25px;
+    margin:25px 0;
+    opacity:0.8;
+}
+
+.cta{
+    padding:14px 35px;
+    font-size:16px;
+    background:#00bfff;
+    border:none;
+    color:white;
+    cursor:pointer;
+    transition:0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta:hover{
+    background:#008ecc;
+    transform:scale(1.08);
+    box-shadow:0px 0px 20px #00bfff;
+}
+
+/* FEATURE CARDS */
+.feature-box{
+    position:absolute;
+    bottom:40px;
+    display:flex;
+    gap:40px;
+}
+
+.card{
+    background:rgba(71, 91, 143, 0.988);
+    padding:30px;
+    width:300px;
+    border-radius:20px;
+    backdrop-filter:blur(8px);
+    transition:0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    cursor:pointer;
+}
+
+.card h3{
+    font-size:23px;
+    margin-bottom:15px;
+    color:#00e0ff;
+    transition:0.3s;
+}
+
+.card p{
+    font-size:15px;
+    opacity:0.85;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-15px) scale(1.05);
+    background:rgba(0,191,255,0.9);
+    box-shadow:0 15px 25px rgba(0,191,255,0.4);
+}
+
+.card:hover h3{
+    color:white;
+}
+
+.card:hover p{
+    opacity:1
+}
+
+/* OPTIONAL: small card entrance animation */
+.card{
+    opacity:0;
+    transform:translateY(30px);
+    animation: cardFade 0.8s forwards;
+}
+
+.card:nth-child(1){animation-delay:0.2s;}
+.card:nth-child(2){animation-delay:0.4s;}
+.card:nth-child(3){animation-delay:0.6s;}
+
+@keyframes cardFade{
+    to{opacity:1; transform:translateY(0);}
+} 

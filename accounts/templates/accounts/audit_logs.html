@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Audit Logs</title>
+</head>
+<body>
+
+<h2>Audit Logs</h2>
+
+<a href="{% url 'dashboard' %}">Back</a>
+
+<table border="1">
+
+<tr>
+<th>File</th>
+<th>Action</th>
+<th>Time</th>
+</tr>
+
+{% for log in logs %}
+
+<tr>
+
+<td>{{ log.file.file_name }}</td>
+
+<td>{{ log.action_type }}</td>
+
+<td>{{ log.action_time }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
