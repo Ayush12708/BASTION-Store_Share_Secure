@@ -32,7 +32,11 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-$ryr_937))lwjgtp=0!5euve)-
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "16.16.167.202",
+    "127.0.0.1",
+    "localhost",
+]
 
 
 # Application definition
@@ -83,13 +87,12 @@ WSGI_APPLICATION = 'finalproject.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': os.getenv('DB_NAME', 'bastion'),
-        'USER': os.getenv('DB_USER', 'Your_rds_username'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'your_rds_password'),
-        'HOST': os.getenv('DB_HOST', 'Your_rds_endpoint').strip(),
-        'PORT': os.getenv('DB_PORT', '3306'),
-
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bastion',
+        'USER': 'ayush',
+        'PASSWORD': 'ayush763',
+        'HOST': 'bastion-db.claa8wao6crw.eu-north-1.rds.amazonaws.com',
+        'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }

@@ -1,5 +1,3 @@
-import pymysql
-pymysql.install_as_MySQLdb()
 
 """
 ASGI config for finalproject project.
